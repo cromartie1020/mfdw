@@ -1,7 +1,7 @@
 from django import forms
 
 class ContactForm(forms.Form):
-    yourname=forms.CharField('Your Name')
-    email=forms.EmailField)(required=True, 'Your Email address')
-    subject=forms.CharField(required=False)
-    message=forms.Textarea()
+    yourname=forms.CharField(label ='Your Name')
+    email=forms.EmailField( label ='Your email address',required=False)
+    subject=forms.CharField()
+    message=forms.CharField( label='Message',widget=forms.Textarea)

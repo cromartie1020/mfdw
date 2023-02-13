@@ -1,15 +1,38 @@
 {% extends 'pages/base.html' %}
 {% load static %}
 {% block title %}
-  Contact 
+  Contact Us
 {% endblock %}
- 
-{% block content %}
-<h1>Contact me.</h1>
- <form method ='POST'>
-    {% csrf_token %}
-    {{ form.as_p }}
-    <input type='submit' value='submit' />
+{% block sidenav %}
+  {% for page in page_list %}
+   <li>
+    <a href="{{ page.permalink }}">
+        {{ page.title }}
+        
+            
+    </a> 
+   </li>
+  {% endfor %}
+{% endblock %} 
 
- </form   
+{% block content %}
+<h1>Contact us</h1>
+{% if submitted %}
+  <p class='success'>
+    Your message was submitted successfully.
+  <p>  
+{% else %}
+ <form method ='POST' nonvalidate>
+  <table>
+    {% csrf_token %}
+    {{ form.as_table }}
+      
+    <tr>
+      <td>&nbsp;</td>
+      <td><input type='submit' value='submit' /></td>
+    </tr> 
+    
+  </table>
+</form>  
+{% endif %} 
 {% endblock %}
