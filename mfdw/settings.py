@@ -74,7 +74,7 @@ DATABASES = {
         'USER':config['USER'],
         'PASSWORD':config['PASSWORD'],
         'HOST':'localhost',
-        'POST':5432
+        'PORT':5433
     }
 }
 
